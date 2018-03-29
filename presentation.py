@@ -42,6 +42,9 @@ class Color:
             return Color(self.color)
 
         if self.color is 'red':
+            return {'blue': Color('purple') ,
+                    'yellow' : Color('orange')}[color.color]
+
             if color.color is 'blue':
                 return Color('purple')
             elif color.color is 'yellow':
