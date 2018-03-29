@@ -16,3 +16,8 @@
   __sub__(x)
   __rsub__(x)
   ```
+  * builtin functions
+  ```python
+  __str__(self)
+  __repr__(self)
+  ```
