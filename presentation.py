@@ -1,4 +1,5 @@
 #! /usr/bin/python
+import random
 """
 Code for a presentation on dunder method basics
 """
@@ -8,7 +9,7 @@ class Color:
     _secondary_colors = ['orange', 'green', 'purple']
 
     _instance = None
-    
+
     def __new__(cls, color):
         return super(Color, cls).__new__(cls)
 
@@ -106,6 +107,13 @@ class Color:
         else:
             return Color('white')
 
+    def __eq__(self, other):
+        return self.color is other.color
+
+    def __hash__(self):
+        #return 0
+        return random.randint(1, 3)
+
 if __name__ == "__main__":
     red = Color('red')
     blue = Color('blue')
@@ -126,3 +134,7 @@ if __name__ == "__main__":
     print(red + blue - yellow - blue - red)
     print(str(red + blue - yellow - blue - red))
     print(repr(red + blue - yellow - blue - red))
+
+    colors = {red : 'red', blue: 'blue', yellow: 'yellow'}
+
+    print(repr(colors[red]))

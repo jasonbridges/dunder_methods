@@ -21,7 +21,7 @@
   __str__(self) # executed when str, print
   __repr__(self) # execute when repr or str, print without str defined
   ```
-
+3. Play with hash and eq
 # Demo
 [Run python code live](http://www.pythontutor.com/live.html#mode=edit)
 
@@ -128,6 +128,7 @@ class Color:
                     return Color('red')
         else:
             return Color('white')
+
 
 if __name__ == "__main__":
     red = Color('red')
