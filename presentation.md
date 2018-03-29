@@ -26,6 +26,12 @@
 [Run python code live](http://www.pythontutor.com/live.html#mode=edit)
 
 ```python
+#! /usr/bin/python
+import random
+"""
+Code for a presentation on dunder method basics
+"""
+
 class Color:
     _primary_colors = ['red', 'yellow', 'blue']
     _secondary_colors = ['orange', 'green', 'purple']
@@ -64,6 +70,9 @@ class Color:
             return Color(self.color)
 
         if self.color is 'red':
+            return {'blue': Color('purple') ,
+                    'yellow' : Color('orange')}[color.color]
+
             if color.color is 'blue':
                 return Color('purple')
             elif color.color is 'yellow':
@@ -129,6 +138,12 @@ class Color:
         else:
             return Color('white')
 
+    def __eq__(self, other):
+        return self.color is other.color
+
+    def __hash__(self):
+        #return 0
+        return random.randint(1, 3)
 
 if __name__ == "__main__":
     red = Color('red')
@@ -150,6 +165,11 @@ if __name__ == "__main__":
     print(red + blue - yellow - blue - red)
     print(str(red + blue - yellow - blue - red))
     print(repr(red + blue - yellow - blue - red))
+
+    colors = {red : 'red', blue: 'blue', yellow: 'yellow'}
+
+    print(repr(colors[red]))
+
 ```
 ```
 red
